@@ -1,38 +1,29 @@
 # Motion Tetris
 
-姿勢推定を利用して、身体の動きで操作するテトリスゲームの試作プロジェクトです。
+人体・手指ジェスチャー認識を利用して操作するテトリスゲームの試作プロジェクトです。
 
-Webカメラから取得した映像を解析し、Mediapipeによる姿勢推定を用いて、
-ユーザーの身体動作をゲーム操作へ変換するインタラクティブなゲームシステムを開発しました。
+Webカメラから取得した映像をMediaPipeで解析し、ユーザーの手の形や指の方向を認識することで、
+キーボードを使用せず身体動作によるゲーム操作を実現しました。
 
-本プロジェクトはイベント展示用の作品として制作を開始しました。
+本プロジェクトはイベント展示用の作品として開発を開始しました。
 
 ---
 
 ## 🎯 Overview
 
-本プロジェクトでは、通常のキーボード入力ではなく、
-身体の動きを利用してテトリスを操作するシステムを実装しました。
+本プロジェクトでは、カメラ入力から取得したジェスチャーをゲーム入力へ変換する
+インタラクティブなゲームシステムを開発しました。
 
-リアルタイム姿勢推定によって取得した身体情報を入力として利用し、
-画像処理技術をゲーム操作へ応用することを目的としています。
+通常の入力デバイスではなく、自然な身体動作によってテトリスを操作することを目的としています。
 
 ---
 
 ## 🛠 Technology Stack
 
-- **Programming Language**
-  - Python
-
-- **GUI Framework**
-  - Tkinter
-
-- **Computer Vision**
-  - MediaPipe
-  - OpenCV
-
-- **Development Environment**
-  - VSCode
+- Python
+- Tkinter
+- MediaPipe
+- OpenCV
 
 ---
 
@@ -43,38 +34,41 @@ Web Camera
 ↓
 Image Acquisition
 ↓
-Pose Estimation (MediaPipe)
+Hand / Gesture Recognition (MediaPipe)
 ↓
-Body Landmark Analysis
+Gesture Classification
 ↓
-Motion Recognition
+Input Conversion
 ↓
 Tetris Control
 
 
-
 ---
 
-## 🎮 Features
+## 🎮 Gesture Control
 
-- Webカメラによるリアルタイム映像取得
-- MediaPipeを利用した人体姿勢推定
-- 姿勢情報を利用したゲーム操作
-- PythonによるGUIベースのテトリス実装
+| Game Action | Gesture | Description |
+|---|---|---|
+| MOVE_LEFT | left | 人差し指を左方向へ向ける |
+| MOVE_RIGHT | right | 人差し指を右方向へ向ける |
+| MOVE_DOWN | down / under | 親指を下に向ける（Thumbs Down） |
+| ROTATE | rotate | 5本の指を広げる（Open Hand） |
+| NEUTRAL | face | ジェスチャーなし状態 |
 
 ---
 
 ## 🧩 Tetris Implementation
 
 テトリス部分は既存の簡易実装を参考にし、
-自身のプロジェクト向けに改変しました。
+本プロジェクト向けに改変しました。
 
-以下のゲーム処理を実装しています：
+実装内容：
 
 - ブロック生成
 - ブロック移動
+- 回転処理
 - 衝突判定
-- ライン処理
+- ライン削除処理
 
 ---
 
@@ -82,22 +76,22 @@ Tetris Control
 
 現在はプロトタイプ段階です。
 
-基本的なゲーム機能および姿勢推定処理は実装済みですが、
+基本的なジェスチャー認識およびゲーム操作機能は実装済みですが、
 イベント用途の変更により開発を停止しました。
 
 今後の改善案：
 
-- 姿勢認識精度の向上
-- 操作方法の最適化
+- ジェスチャー認識精度の向上
+- 誤認識の低減
+- 操作レスポンスの改善
 - UI改善
-- 入力遅延の削減
 
 ---
 
-## 📚 Purpose
+## 📚 Development Background
 
 イベント展示用作品として、
-コンピュータビジョン技術を利用した新しいゲーム操作方法の実現を目的として制作しました。
+コンピュータビジョン技術をゲーム操作へ応用することを目的として制作しました。
 
 ---
 

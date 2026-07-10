@@ -92,4 +92,4 @@ Tetris Control
 
 ## 👤 Author
 
-Rakutaro Sorahata
+UTA7972(S.K)
